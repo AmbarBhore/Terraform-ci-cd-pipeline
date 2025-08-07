@@ -9,5 +9,12 @@ pipeline {
 		}
 	     }
 	 }
-      }
+	 stage('Debug AWS Path') {
+            steps {
+                sh 'which aws || echo "AWS not found"'
+                sh 'echo $PATH'
+                sh 'aws --version || echo "AWS CLI not working"'
+            }
+      	 }
+     }
 }
